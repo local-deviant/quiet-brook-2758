@@ -1,7 +1,8 @@
 # Upload — gta6-clipper-01 (v6 = v5 + pitch card)
 
-Klip v6 sudah dirender dan terverifikasi: `clip.mp4` di repo ini
-(1216x2160, 38,3 dtk, Short). v6 = v5 (cold open 33,8 dtk) + kartu
+Klip v6 sudah dirender dan terverifikasi: `clip.mp4` (file lokal,
+1216x2160, 38,3 dtk, Short; klipnya sendiri ada di YouTube, lihat
+`VIDEO.json`). v6 = v5 (cold open 33,8 dtk) + kartu
 pitch 5 dtk di akhir ("Make clips like this with AI and earn money
 on make.fun" + "make.fun/bounty/gta6-clipper-01"). Fadeblack 0,5 dtk
 antar babak, caption dialog burn-in 5 cue, loudness −14,0 LUFS.

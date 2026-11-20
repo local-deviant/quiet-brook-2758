@@ -69,7 +69,7 @@ from rockstargames.com/VI/media/videos):
 ## The video
 
 `VIDEO.json` holds the public YouTube Short's address
-(https://www.youtube.com/shorts/OBzGvs-LNBY). See `UPLOAD.md` for
+(https://www.youtube.com/shorts/Euc8kReR22Q). See `UPLOAD.md` for
 the title, the description (the bounty's line, word for word, plus
 the play code), and the steps.
 
