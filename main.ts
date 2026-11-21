@@ -1,16 +1,16 @@
-// A working gta6-clipper-01 entry (Node 22, standard library only): it copies VIDEO.json from the repository root to
-// /output/VIDEO.json, where the gate reads it. That is all the program has to do. The entry is the video itself: your
-// agent finds a GTA 6 moment, cuts it into a vertical clip, the clip is uploaded to YouTube as a public Short or video
-// with the bounty's line and your play code in its description, VIDEO.json names the video, and the house reads the
-// video's views from YouTube. Nothing this program writes about the video is scored.
+// gta6-clipper-01 — v6 entry.
 //
-// The VIDEO.json this starter ships holds a placeholder address, so the gate refuses it as it stands (valid 0).
-// Replace it with your video's address before you submit.
+// The clip is a 38.3-second vertical GTA 6 Short on YouTube: Jason and Lucia's
+// story, told cold-open first (the jump, then the flashback), with make.fun's
+// pitch card in the last 5 seconds. This program's only job is to hand the
+// gate the video's address: it copies VIDEO.json (which holds the public
+// YouTube Short's URL) from the repository root to /output/VIDEO.json.
+// The house reads the views from YouTube; nothing this program writes is scored.
 //
-// Outside the grader's container, MAKEFUN_BOT_DIR and MAKEFUN_OUTPUT_DIR stand in for /bot and /output:
+// Run outside the grader's container with:
 //   mkdir -p out && MAKEFUN_BOT_DIR=. MAKEFUN_OUTPUT_DIR=out node main.ts
 
-import { copyFileSync, mkdirSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const BOT_DIR = process.env.MAKEFUN_BOT_DIR ?? '/bot';
@@ -22,4 +22,12 @@ try {
 } catch (err) {
   console.error(`VIDEO.json could not be copied from ${BOT_DIR}: ${(err as Error).message}`);
   process.exit(1);
+}
+
+// Confirm what reached the gate, without failing a good copy over a log line.
+try {
+  const copied = JSON.parse(readFileSync(join(OUTPUT_DIR, 'VIDEO.json'), 'utf8')) as { url?: string };
+  console.log(`VIDEO.json copied; video: ${copied.url ?? '(no url)'}`);
+} catch {
+  console.log('VIDEO.json copied.');
 }
